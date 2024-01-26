@@ -17,7 +17,9 @@ include 'login.php';
 
 
 if ($conn->query($sql) === TRUE) {
-    echo ' Record added successfully ';
+	echo ' Record added successfully ';
+         header('Location: index.html');
+
 } else {
     echo 'Error: ' . $sql . '<br>' . $conn->error;
 }
