@@ -1,0 +1,30 @@
+FROM ubuntu
+MAINTAINER jaya
+
+# Install packages: mysql adds a root user with no password
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update &&   apt-get install mysql-server -y
+RUN echo service mysql start >> /root/.bashrc
+
+# Change mysql to listen on 0.0.0.0
+RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# setup our username 
+ENV username=jaya
+ENV password=q123
+COPY mysql.sh /mysql.sh
+RUN chmod +x /mysql.sh
+
+
+EXPOSE 3306
+CMD ["/mysql.sh","service", "mysql", "start"]
+
+
+~                                                                                                                                             
+~                                                                                                                                             
+~                                                                                                                                             
+~                                                                                                                                             
+~                                                                                                                                             
+~                                                                                                                                             
+~                                                                                                                                             
+~                                                   
