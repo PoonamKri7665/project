@@ -1,3 +1,11 @@
+#nginx as loadbalancer
+```
+change the config file of nginx /etc/nginx
+```
+nginx dockerfile file here is for creating nginx image using script run.sh
+
+
+
 # project
  $db = new PDO('mysql:host=mysql;port=3306;dbname=testapp', 'root', 'secret');
  ```
